@@ -1,3 +1,4 @@
+//MAIN-PAGE
 const heading=document.querySelector('#heading');
 
 const keyframes={
@@ -31,3 +32,29 @@ const option={
     iterations:Infinity,
 };
 heading.animate(fuwa,option);
+
+//second-page
+//監視対象が範囲内に現れたら実行する動作
+const odori=(entries)=>{
+    const keyframes={
+        opacity:[0,1],
+        translate:['500px 0',0],
+    };
+    const options={
+        duration:3000,
+    };
+    console.log(entries[0].target);
+    entries[0].target.animate(keyframes,options);
+};
+
+const abu={
+    // root:document.querySelector('#odori'),
+    // rootMargin:'0px',
+    threshold:0.75
+};
+//監視ロボットの設定
+const odoriObserver=new IntersectionObserver(odori,abu);
+
+//#odoriを監視するように指示
+odoriObserver.observe(document.querySelector('#odori'));
+
