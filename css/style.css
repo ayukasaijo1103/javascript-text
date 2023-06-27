@@ -4,6 +4,29 @@ img{
     object-fit: cover;
 }
 
+.hero {
+    height: 100vh;
+    position: relative;
+}
+.hero::after {
+    content: '';
+    width: 50%;
+    height: 100vh;
+    background: url('../images/gallery.jpg') no-repeat center / cover;
+    position: absolute;
+    inset: 0;
+}
+.hero .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+    width: 100%;
+    font-size: max(12vw, 3rem);
+    line-height: 1.2;
+}
+
 .main-page{
     background-image: url(../images/main-bg.jpg);
     height: 100vh;
@@ -31,4 +54,31 @@ h1{
 
 .arrow{
 text-align: center;
+}
+
+/*ローディング*/
+:root{
+    --light-grey:grey;
+    --light-green:lightgreen;
+}
+#loading{
+    background-color: var(--light-grey);
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+}
+
+#loading-screen{
+    background-color: var(--light-green);
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    translate: 0 110vh;
+}
+
+#loading p{
+    font-size: 2rem;
+    font-family: var(--oswald-font); 
 }
